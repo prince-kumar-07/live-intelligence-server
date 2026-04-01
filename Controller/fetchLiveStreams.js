@@ -3,8 +3,7 @@ const axios = require("axios");
 // Get free API key:
 // 1. Go to https://console.cloud.google.com
 // 2. Create project → Enable "YouTube Data API v3"
-// 3. Credentials → Create API Key
-const YOUTUBE_API_KEY = "AIzaSyAdwB3vbwWtlziakTBV5h_eci1DdOXkNuI";
+// 3. Credentials → Create API K
 
 // ISO2 country codes for YouTube regionCode param
 const COUNTRY_ISO2 = {
