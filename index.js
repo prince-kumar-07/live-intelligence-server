@@ -12,8 +12,16 @@ const cors = require("cors");
 const PORT = process.env.PORT || 4000;
 const app = express();
 
+const ALLOWED_ORIGINS = new Set([
+  process.env.ALLOWED_ORIGIN,
+  "http://localhost:5173",
+].filter(Boolean));
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: function (origin, callback) {
+    if (!origin || ALLOWED_ORIGINS.has(origin)) return callback(null, true);
+    callback(new Error("Not allowed by CORS"));
+  },
   credentials: true
 }));
 
